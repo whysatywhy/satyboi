@@ -6,114 +6,132 @@
     <title>Theorama</title>
     <style>
         body {
-            margin: 0;
             font-family: Arial, sans-serif;
-            background: black;
-            color: white;
+            margin: 0;
+            padding: 0;
+            background: #000;
+            color: #fff;
             text-align: center;
         }
-
-        .header {
-            background: linear-gradient(to right, orange, red);
+        header {
+            background: linear-gradient(90deg, #FF4500, #FF6347);
             padding: 20px;
-            color: purple;
-            font-size: 3em;
-            font-weight: bold;
         }
-
-        .nav {
+        header h1 {
+            font-size: 3rem;
+            color: #8A2BE2;
+            margin: 0;
+        }
+        nav {
             display: flex;
             justify-content: center;
             gap: 50px;
-            margin: 30px 0;
-            font-size: 1.5em;
+            margin: 20px 0;
         }
-
-        .nav-item {
+        nav a {
+            text-decoration: none;
+            color: #FF7F50;
+            font-size: 1.5rem;
             position: relative;
-            cursor: pointer;
         }
-
-        .nav-item:hover .animation {
-            display: block;
+        nav a:hover {
+            color: #fff;
         }
-
-        .animation {
+        nav a:hover::after {
+            content: '';
             position: absolute;
-            top: 40px;
+            left: 0;
+            right: 0;
+            bottom: -5px;
+            height: 2px;
+            background: #FF7F50;
+            animation: slide-in 0.3s forwards;
+        }
+        @keyframes slide-in {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        /* Animations for each link */
+        .learn:hover::before {
+            content: '🍎\n💥';
+            display: block;
+            position: absolute;
+            top: -30px;
             left: 50%;
             transform: translateX(-50%);
-            display: none;
+            animation: apple-fall 1s ease-in-out;
         }
 
-        .footer {
-            background: linear-gradient(to right, orange, red);
+        @keyframes apple-fall {
+            0% { top: -50px; opacity: 0; }
+            50% { top: 0; opacity: 1; }
+            100% { top: 30px; opacity: 0; }
+        }
+
+        .research:hover::before {
+            content: '⚖️\n📏';
+            display: block;
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: scale-bounce 1s infinite;
+        }
+
+        @keyframes scale-bounce {
+            0%, 100% { transform: translate(-50%, 0) scale(1); }
+            50% { transform: translate(-50%, -10px) scale(1.2); }
+        }
+
+        .phy-ight:hover::before {
+            content: '⚔️';
+            display: block;
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: sword-swing 0.5s ease-in-out;
+        }
+
+        @keyframes sword-swing {
+            0% { transform: translate(-50%, 0) rotate(0); }
+            50% { transform: translate(-50%, -10px) rotate(-45deg); }
+            100% { transform: translate(-50%, 0) rotate(0); }
+        }
+
+        section {
+            margin: 40px;
+            font-size: 1.2rem;
+        }
+        footer {
+            background: linear-gradient(90deg, #FF6347, #FF4500);
             padding: 10px;
-            color: purple;
-            font-size: 1.2em;
             position: fixed;
             bottom: 0;
             width: 100%;
         }
-
-        /* Placeholder Animations */
-        .learn-animation {
-            width: 100px;
-            height: 100px;
-            border: 1px solid white;
-            animation: apple-fall 2s infinite;
+        footer p {
+            color: #8A2BE2;
+            margin: 0;
+            font-size: 1.2rem;
         }
-
-        .research-animation {
-            width: 100px;
-            height: 100px;
-            border: 1px solid white;
-            animation: scale-ball 1s infinite alternate;
-        }
-
-        .phyigh-animation {
-            width: 100px;
-            height: 100px;
-            border: 1px solid white;
-            animation: sword-swing 1.5s infinite;
-        }
-
-        @keyframes apple-fall {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(50px); }
-        }
-
-        @keyframes scale-ball {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.5); }
-        }
-
-        @keyframes sword-swing {
-            0% { transform: rotate(0); }
-            50% { transform: rotate(45deg); }
-            100% { transform: rotate(0); }
-        }
-
     </style>
 </head>
 <body>
-    <div class="header">Theorama</div>
-
-    <div class="nav">
-        <div class="nav-item">
-            Learn
-            <div class="animation learn-animation"></div>
-        </div>
-        <div class="nav-item">
-            Research
-            <div class="animation research-animation"></div>
-        </div>
-        <div class="nav-item">
-            Phy-igh
-            <div class="animation phyigh-animation"></div>
-        </div>
-    </div>
-
-    <div class="footer">The Way It's Meant To Be</div>
+    <header>
+        <h1>Theorama</h1>
+    </header>
+    <nav>
+        <a href="learn.html" class="learn">Learn</a>
+        <a href="research.html" class="research">Research</a>
+        <a href="phy-ight.html" class="phy-ight">Phy-ight</a>
+    </nav>
+    <section>
+        <p>Welcome to Theorama! Choose an option above to explore interactive animations and pages.</p>
+    </section>
+    <footer>
+        <p>The Way It's Meant To Be</p>
+    </footer>
 </body>
 </html>
