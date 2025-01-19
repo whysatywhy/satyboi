@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theorama</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: black;
+            color: white;
+            text-align: center;
+        }
+
+        .header {
+            background: linear-gradient(to right, orange, red);
+            padding: 20px;
+            color: purple;
+            font-size: 3em;
+            font-weight: bold;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin: 30px 0;
+            font-size: 1.5em;
+        }
+
+        .nav-item {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .nav-item:hover .animation {
+            display: block;
+        }
+
+        .animation {
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: none;
+        }
+
+        .footer {
+            background: linear-gradient(to right, orange, red);
+            padding: 10px;
+            color: purple;
+            font-size: 1.2em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Placeholder Animations */
+        .learn-animation {
+            width: 100px;
+            height: 100px;
+            border: 1px solid white;
+            animation: apple-fall 2s infinite;
+        }
+
+        .research-animation {
+            width: 100px;
+            height: 100px;
+            border: 1px solid white;
+            animation: scale-ball 1s infinite alternate;
+        }
+
+        .phyigh-animation {
+            width: 100px;
+            height: 100px;
+            border: 1px solid white;
+            animation: sword-swing 1.5s infinite;
+        }
+
+        @keyframes apple-fall {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(50px); }
+        }
+
+        @keyframes scale-ball {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.5); }
+        }
+
+        @keyframes sword-swing {
+            0% { transform: rotate(0); }
+            50% { transform: rotate(45deg); }
+            100% { transform: rotate(0); }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">Theorama</div>
+
+    <div class="nav">
+        <div class="nav-item">
+            Learn
+            <div class="animation learn-animation"></div>
+        </div>
+        <div class="nav-item">
+            Research
+            <div class="animation research-animation"></div>
+        </div>
+        <div class="nav-item">
+            Phy-igh
+            <div class="animation phyigh-animation"></div>
+        </div>
+    </div>
+
+    <div class="footer">The Way It's Meant To Be</div>
+</body>
+</html>
